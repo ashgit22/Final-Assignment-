@@ -1,128 +1,102 @@
-Final Assignment SLE 777
+# Final Assignment SLE 777
 
-Author: Ashith Sujay Kumar
-Course: SLE 777
-Format: R Markdown (.Rmd)
-Output: HTML with Table of Contents (ToC), Cosmo theme
+**Author:** Ashith Sujay Kumar  
+**Course:** SLE 777  
+**Output Format:** HTML (via R Markdown)  
+**Features:** Table of Contents, Cosmo Theme
 
-Overview
+---
 
-This report is the final assignment for the SLE 777 course and is structured into two main parts:
+## Overview
 
-Gene Expression and Tree Growth Analysis
+This project is the final assignment for the SLE 777 course. It is divided into two major parts:
 
-Biological Sequence Diversity (Comparative Genomics)
+1. **Gene Expression and Tree Growth Analysis**
+2. **Biological Sequence Diversity (Comparative Genomics)**
 
-Each section includes detailed data analysis, visualization, and interpretation. The code is written in R and uses publicly available datasets from GitHub and Ensembl.
+Each section performs data analysis, visualization, and interpretation using R and real biological datasets.
 
-Part 1: Gene Expression and Tree Growth Analysis
-Gene Expression Analysis
+---
 
-Dataset: gene_expression.tsv (sourced from GitHub)
+## Part 1: Gene Expression and Tree Growth Analysis
 
-Key Steps:
+### Gene Expression
 
-Loaded gene expression data and calculated mean expression per gene
+- **Data Source:** `gene_expression.tsv` (from GitHub)
+- **Objectives:**
+  - Load and inspect gene expression data
+  - Calculate mean gene expression across samples
+  - Identify top expressed genes
+  - Count genes with low expression (<10)
+  - Visualize distribution with a histogram
 
-Identified top 10 most highly expressed genes
+### Tree Growth Analysis
 
-Counted genes with low expression (mean < 10)
+- **Data Source:** `growth_data.csv` (tree circumference data from 2005 and 2020)
+- **Objectives:**
+  - Clean and process tree data
+  - Compare start and end circumferences by site
+  - Visualize with boxplots
+  - Calculate 10-year growth and perform t-tests between sites
 
-Visualized expression distribution using histogram (log scale)
+---
 
-Tree Growth Analysis
+## Part 2: Biological Sequence Diversity
 
-Dataset: growth_data.csv (tree circumference data, 2005–2020)
+### Organisms Compared
 
-Key Steps:
+- **Escherichia coli (E. coli)** – K-12 MG1655
+- **Anaerococcus tetradius**
 
-Cleaned dataset and extracted relevant fields (Start, End, Site)
+### Data Sources
 
-Calculated site-specific summary statistics (mean, SD)
+- Coding Sequences (CDS) from [Ensembl Bacteria Release 62](https://ftp.ensemblgenomes.ebi.ac.uk/pub/bacteria/release-62/)
 
-Created boxplots for circumference at start and end
+### Analyses Performed
 
-Computed mean 10-year growth per site
+- **CDS Count and Total Coding Length**
+- **CDS Length Distribution**
+  - Boxplots of CDS lengths
+  - Mean and median length comparison
+- **Amino Acid Frequency**
+  - Protein translation of CDS
+  - Barplots showing amino acid usage
+- **Codon Usage**
+  - Frequency calculation and comparison
+- **K-mer Analysis**
+  - Identification of over- and under-represented DNA motifs (k = 3, 4, 5)
 
-Performed a t-test to assess site differences in growth
+---
 
-Part 2: Biological Sequence Diversity
-Organisms Analyzed
+##How to Run the Analysis
 
-Escherichia coli (E. coli) — Str. K-12 MG1655
 
-Anaerococcus tetradius
+1. **Open the `.Rmd` file** in RStudio.
+2. Click the **Knit** button to generate the HTML output.
+3. Ensure **internet access** is available — all datasets are downloaded during runtime.
+4. **Output:** An HTML report with embedded results, plots, and interpretation.
 
-Datasets
+---
 
-Coding sequences (CDS) in FASTA format from Ensembl Bacteria (release 62)
+## Key Insights
 
-Key Analyses
+### Gene Expression
+- Gene expression is **highly skewed** — the majority of genes have low expression.
+- A small number of genes show **very high activity**.
 
-CDS Statistics
+### Tree Growth
+- Trees in the **Northeast site** showed greater growth on average over 10 years.
+- The difference is **marginally non-significant** (*p* ≈ 0.059).
 
-Counted total number of coding sequences
+### Genomic Comparisons
+- **E. coli** has **more CDS** and a **larger total coding genome** than *Anaerococcus tetradius*.
+- **Codon** and **amino acid** usage profiles show **clear species-specific patterns**.
+- **K-mer analysis** highlights **distinct sequence motif preferences** between the two organisms.
 
-Calculated total coding DNA length per organism
+---
 
-Length Distributions
+## License
 
-Compared CDS lengths using boxplots
+This analysis is submitted as **academic coursework** for **SLE 777**.  
+It is intended strictly for **educational purposes**.
 
-Calculated mean and median lengths
-
-Amino Acid Frequencies
-
-Translated CDS to protein sequences
-
-Visualized amino acid usage for each organism
-
-Codon Usage
-
-Computed codon frequencies per organism
-
-Compared side-by-side in a grouped barplot
-
-K-mer Analysis
-
-Analyzed over- and under-represented k-mers (k = 3, 4, 5)
-
-Visualized frequency differences in barplots
-
-How to Run This Analysis
-
-Required Libraries:
-
-seqinr
-
-R.utils
-
-knitr
-
-Execution:
-
-Open the .Rmd file in RStudio
-
-Click Knit to produce the HTML report
-
-Ensure internet access for downloading data from GitHub and Ensembl FTP servers
-
-Note: The script downloads and decompresses FASTA files (CDS) and may take a few minutes depending on connection speed.
-
-Interpretation & Key Findings
-
-Gene Expression: Most genes have low expression; only a small number are highly expressed.
-
-Tree Growth: Trees at the Northeast site showed greater growth on average, although the difference is marginally non-significant.
-
-Comparative Genomics:
-
-E. coli has more CDS and a longer total coding length than Anaerococcus tetradius.
-
-Codon and amino acid usage varies between the two species, reflecting different genomic and translational preferences.
-
-K-mer profiles reveal species-specific DNA motifs and potential regulatory patterns.
-
-License
-
-This analysis is intended for academic purposes under the scope of SLE 777 coursework.
